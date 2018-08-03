@@ -6,17 +6,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet" />
     <link rel="stylesheet" href="css/main.css">
     <title>Home</title>
   </head>
   <body>
+    <header>
+      <h1> FOODMAP </h1> 
+    </header>
+    <main>
+      <form>
+        <input type="text" id="inpt" placeholder="O que você quer comer hoje?"></input>
+        <input type="button" id="btn" value="Procurar"></input>
+      </form>
+      <div id="map"></div>
+      <div id="show-restaurants">
+        <div class="item"> 
+          <img src="assets/aji-to.jpg" />
+          <span class="title"> Aji-to </span>
+        </div>
+        <div class="item"> 
+            <img src="assets/latife.png" />
+            <span class="title"> Latife </span>
+        </div>
+        <div class="item"> 
+            <img src="assets/arabesco.jpg" />
+            <span class="title"> Arabesco - Paulista </span>
+        </div>
+        <div class="item"> 
+            <img src="assets/mcdonalds.png" />
+            <span class="title"> Mc Donalds </span>
+        </div>
+        <div class="item"> 
+            <img src="assets/ragazzo.png" />
+            <span class="title"> Ragazzo </span>
+        </div>
+      </div>
+    </main>
 
-
-
-    <!-- O script comentado é o do Google maps -->
+    <!-- Google maps -->
     <!-- <script async defer  src="https://maps.googleapis.com/maps/api/js?key=<sua-chave-da-API>&callback=<sua-funcao-de-inicio>">
     </script> -->  
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"crossorigin="anonymous"></script>
     <script src="js/data.js"></script>
