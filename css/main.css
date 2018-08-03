@@ -25,11 +25,24 @@ main {
   align-items: center;
 }
 
-form {
+div#map {
   width: 100%;
+  height: 400px;
+  margin-bottom: 30px;
 }
 
-input#inpt {
+form {
+  width: 100%;
+  text-align: center;
+}
+
+label#label-filter {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ff795c;
+}
+
+input#inpt-filter {
   padding: 10px;
   width: 71%;
   box-sizing: border-box;
@@ -39,7 +52,7 @@ input#inpt {
   box-shadow: 1px 1px 1px #dac8c5;
 }
 
-input#btn {
+input#btn-filter {
   width: 26%;
   box-sizing: border-box;
   padding: 14px 0px;

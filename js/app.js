@@ -31,10 +31,12 @@ function showResult(objResult) {
 
     var template = `
       <div class="item">
-      <img src="${image}" class="thumb-item">
+      <img src="${image}" class="thumb-item" data-toggle="modal" data-target="#exampleModal">
       <span class="title">${name}</span>
     `;
     $('.search-result').append(template);
+
+    $('.modal-body').text(name)
   }
 }
 
