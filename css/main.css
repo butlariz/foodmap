@@ -1,1 +1,25 @@
-/*Add your CSS*/
+body {
+  background-color: #ffc291;
+}
+
+header {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-family: 'Fredoka One', cursive;
+  color: #fff;
+  text-shadow: 2px 2px 3px #c35d2d;
+  font-size: 4rem;
+}
+
+#map {
+  width: 100%;
+  height: 500px;
+  max-width: 500px;
+}
