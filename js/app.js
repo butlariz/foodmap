@@ -32,7 +32,7 @@ function showResult(objResult) {
     var template = `
       <div class="item">
       <img src="${image}" class="thumb-item">
-      <span class="title-item">${name}</span>
+      <span class="title">${name}</span>
     `;
     $('.search-result').append(template);
   }
