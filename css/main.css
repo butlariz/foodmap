@@ -83,3 +83,37 @@ span.title {
   padding: 20px;
   font-size: 11pt;
 }
+
+@media (max-width: 320px) {
+  .item {
+    width: 100%;
+    margin-bottom: 7%;
+  }
+
+  input#inpt {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  input#btn {
+    margin-top: 4%;
+    width: 100%;
+    border-radius: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  header {
+    background-size: 100%;
+    height: 51vh;
+  }
+
+  h1 {
+    font-size: 5vw;
+  }
+
+  main {
+    width: 1000px;
+    margin: 30px auto;
+  }
+}
