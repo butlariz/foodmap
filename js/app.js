@@ -2,6 +2,10 @@ $(document).ready(function() {
   showResult(restaurantes);
   $('#btn-filter').click(findRestaurants);
 
+  $('.search-result').keydown(function (e) {
+        e.preventDefault();
+  });
+
   //Animação no início
   $("body").hide().delay(1990).show();
   $( "#logo-preloader" ).delay( 2000 ).animate({
@@ -17,16 +21,16 @@ function findRestaurants() {
   var searchValue = $('#inpt-filter').val();
   var resultRestaurants = [];
 
-  for (restaurant in restaurantes) {
-    if (searchValue === restaurantes[restaurant]["type"]) {
-      resultRestaurants.push(restaurantes[restaurant]);
+  $.each(restaurantes, function(index, val) { 
+    if (searchValue === val["type"] || searchValue === val["name"]) {
+      resultRestaurants.push(val);
     }
-  }
+  });
 
   if (resultRestaurants.length === 0) {
     $('.search-result').text('Não foram encontrados restaurantes. Que tal tentar outra busca?')
   } else {
-    // initMap(resultRestaurants);
+    initMap(resultRestaurants);
     showResult(resultRestaurants);
   }
 };
@@ -56,7 +60,7 @@ function showResult(objResult) {
 
 // Chamar mapa primeira vez
 function callMap() {
-  // initMap(restaurantes);
+  initMap(restaurantes);
 }
 
 // Iniciar ou atualizar mapa
@@ -75,10 +79,10 @@ function initMap(objRestaurants) {
       map: map,
     });
     marker.infowindow = infowindow;
-    google.maps.event.addListener(marker, 'mouseover', function() {
+    google.maps.event.addListener(marker, 'click', function() {
       this.infowindow.open(map, this); 
     }); 
-    google.maps.event.addListener(marker, 'mouseout', function() {
+    google.maps.event.addListener(marker, 'click', function() {
       this.infowindow.close(map, this);
     }); 
   }
@@ -109,4 +113,3 @@ function createModalContent(title, obj) {
     }
   }
 }
-//Lista, ajudar: $('.filter').keyup(findRestaurants);
