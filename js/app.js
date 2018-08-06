@@ -1,11 +1,20 @@
 $(document).ready(function() {
   showResult(restaurantes);
-  $('.search').click(findRestaurants);
+  $('#btn-filter').click(findRestaurants);
+
+  //Animação no início
+  $("body").hide().delay(1990).show();
+  $( "#logo-preloader" ).delay( 2000 ).animate({
+    height: "273px",
+  }, 900, function() {
+    $(this).fadeOut("fast");
+  });
 });
+
 
 // Filtrar restaurantes
 function findRestaurants() {
-  var searchValue = $('.filter').val();
+  var searchValue = $('#inpt-filter').val();
   var resultRestaurants = [];
 
   for (restaurant in restaurantes) {
@@ -17,7 +26,7 @@ function findRestaurants() {
   if (resultRestaurants.length === 0) {
     $('.search-result').text('Não foram encontrados restaurantes. Que tal tentar outra busca?')
   } else {
-    initMap(resultRestaurants);
+    // initMap(resultRestaurants);
     showResult(resultRestaurants);
   }
 };
@@ -28,21 +37,26 @@ function showResult(objResult) {
   for (result of objResult) {
     image = fixSrcImage(result["image"]);
     name = result["name"];
+    description = result["description"];
+    type = result["type"];
 
     var template = `
       <div class="item">
-      <img src="${image}" class="thumb-item" data-toggle="modal" data-target="#exampleModal">
+      <img src="${image}" class="thumb-item" data-toggle="modal" data-target="#exampleModal" data-name="${name}">
       <span class="title">${name}</span>
+      </div>
     `;
     $('.search-result').append(template);
-
-    $('.modal-body').text(name)
   }
+  $('.thumb-item').click(function() {
+    var dataName = $(this).data('name');
+    createModalContent(dataName, objResult);
+  });
 }
 
 // Chamar mapa primeira vez
 function callMap() {
-  initMap(restaurantes);
+  // initMap(restaurantes);
 }
 
 // Iniciar ou atualizar mapa
@@ -81,4 +95,18 @@ function fixSrcImage(srcImage){
   return newSrc;
 }
 
+function createModalContent(title, obj) {
+  for (restaurant of obj) { 
+    if (title == restaurant["name"]) {
+      var image = fixSrcImage(restaurant["image"]);
+      var template = `
+          <img src="${image}" class="thumb-modal">
+          <span>${restaurant["type"]}</span>
+          <div> ${restaurant["description"]} </div>
+        `;
+      $('.modal-title').html(restaurant["name"]);
+      $('.modal-body').html(template);
+    }
+  }
+}
 //Lista, ajudar: $('.filter').keyup(findRestaurants);

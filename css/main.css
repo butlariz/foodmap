@@ -2,20 +2,43 @@ body {
   background-color: #fff4e9;
 }
 
+#logo-preloader {
+  width: 100%;
+  position: fixed;
+  height: 100vh;
+  background-size: 101%;
+  background-position: bottom;
+  background-color: #ff795c;
+  z-index: 9;
+}
+
 header {
+  height: 331px;
+  background-size: 225%;
+  background-position: top center;
   background-image: url(../assets/bg.png);
-  background-position: left top;
-  height: 250px;
+  background-repeat: no-repeat;
+}
+
+.logo-wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.margin-top {
+  margin-top: -58px;
+}
+
 h1 {
   font-family: 'Fredoka One', cursive;
   color: #fff;
   font-size: 10vw;
+}
+
+h4 {
+  font-size: 0.5em;
 }
 
 main {
@@ -95,6 +118,29 @@ span.title {
   font-weight: bold;
   padding: 20px;
   font-size: 11pt;
+}
+
+.modal-body span {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+img.thumb-modal {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.modal-footer {
+  justify-content: center;
+}
+
+.btn-modal {
+  color: #fff;
+  background-color: #ff795c;
+  border-color: #ff795c;
 }
 
 @media (min-width: 1200px) {
