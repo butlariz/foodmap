@@ -143,6 +143,13 @@ img.thumb-modal {
   border-color: #ff795c;
 }
 
+@media (max-width: 356px) {
+  header {
+    background-size: 359%;
+    background-position-x: 9%;
+  }
+}
+
 @media (min-width: 1200px) {
   header {
     background-size: 100%;
